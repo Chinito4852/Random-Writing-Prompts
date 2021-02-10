@@ -127,7 +127,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend')
+#REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend')
+REACT_APP_DIR = BASE_DIR
 
 STATICFILES_DIRS = [
     os.path.join(REACT_APP_DIR, 'build', 'static'),
@@ -144,3 +145,5 @@ CORS_ORIGIN_WHITELIST = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+FILE_CHARSET = 'utf-8'
