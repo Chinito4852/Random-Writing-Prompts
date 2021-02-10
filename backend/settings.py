@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from .secret import k
+from corsheaders.defaults import default_headers
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -145,5 +146,11 @@ CORS_ORIGIN_WHITELIST = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+#CORS_ALLOW_CREDENTIALS = 
+
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'X-CSRFTOKEN',
+]
 
 FILE_CHARSET = 'utf-8'

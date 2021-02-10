@@ -9,6 +9,10 @@ function App() {
   // URL for django REST api
   const BASE_URL = `http://localhost:8000/`;
 
+  axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+  axios.defaults.xsrfCookieName = "csrftoken";
+  axios.defaults.withCredentials = true;
+
   // Declare state variables (the pair returned is a varaible and a function to update it)
   const [randomPrompt, setRandomPrompt] = useState("");
   const [fetchedRandom, setFetchedRandom] = useState(false);
@@ -108,7 +112,7 @@ function App() {
 
   // Save a random prompt
   const handleSave = () => {
-    axios.post(BASE_URL.concat("api/prompts/"), {promptType: promptType, text: randomPrompt})
+    axios.post('/'.concat("api/prompts/"), {promptType: promptType, text: randomPrompt})
     .then(res => {
       alert("Saved prompt!");
       setFetchedSaved(false);
@@ -156,7 +160,7 @@ function App() {
 
   // Delete a prompt
   const handleDelete = (id) => {
-    axios.delete(BASE_URL.concat(`api/prompts/${id}`))
+    axios.delete('/'.concat(`api/prompts/${id}`))
     .then(res => {
       alert("Deleted prompt.");
       setFetchedSaved(false);
