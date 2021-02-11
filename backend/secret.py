@@ -1,1 +1,0 @@
-k = '^2$b3owt#oqavp0ie7htkw$&i_=p05@!7)aumo&huxz(%4afyj'
